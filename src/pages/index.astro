@@ -1,0 +1,26 @@
+---
+import BackgroundMain from "../components/background/BackgroundMain.astro";
+import Navbar from "../components/navigation/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+import { apiRequest } from "../utils/api/api";
+import { API } from "../utils/api/types";
+
+// const github = await apiRequest(API.GitHub, {
+//     endpoint: "/users/sayatoshiii",
+//     method: "GET",
+// });
+---
+
+<Layout>
+    <BackgroundMain />
+
+    <Navbar />
+    <main class={"w-full flex flex-col justicy-center"}>
+        <!-- <img
+            class={"max-w-20 h-auto rounded-[100%]"}
+            src={"https://avatars.githubusercontent.com/u/183303950?v=4"}
+            alt={"GitHub Avatar"}
+        /> -->
+        <!-- {github && <img src={github.data.avatar_url} alt="GitHub avatar" />} -->
+    </main>
+</Layout>

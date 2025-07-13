@@ -1,0 +1,35 @@
+<nav class={"w-full flex justify-center items-center"}>
+    <main
+        class={"top-2 fixed w-full max-w-[min(1000px,90vw)] flex flex-row justify-between items-center gap-8 py-2 px-4 border-transparent border-2 rounded-xl backdrop-blur-[0px] bg-transparent transition-all duration-200"}
+        id={"navbar"}
+    >
+        <section>test 1</section>
+        <section>test 2</section>
+        <section>test 3</section>
+    </main>
+</nav>
+
+<script is:inline>
+    const minScrollToActive = 75;
+    const activeClassNames =
+        "top-5 !border-[var(--colours-border-tertiary)] !backdrop-blur-[3px] !bg-[var(--colours-border-tertiary)]";
+
+    const navbarElement = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY >= minScrollToActive) {
+            const currentClassName = navbarElement.className;
+            if (currentClassName?.includes(activeClassNames)) return;
+
+            navbarElement.className = `${currentClassName} ${activeClassNames}`;
+        } else {
+            const currentClassName = navbarElement.className;
+            if (!currentClassName?.includes(activeClassNames)) return;
+
+            navbarElement.className = navbarElement.className?.replaceAll(
+                activeClassNames,
+                "",
+            );
+        }
+    });
+</script>
