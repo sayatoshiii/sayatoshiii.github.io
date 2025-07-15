@@ -1,3 +1,5 @@
+import { NavbarItemType } from "./components/navigation/elements/types";
+
 export default {
     api: {
         github: {
@@ -11,6 +13,7 @@ export default {
                     {
                         label: "test",
                         href: "/",
+                        type: NavbarItemType.LINK,
                     },
                 ],
             ],
