@@ -1,4 +1,4 @@
-export interface NavbarItem {
+export interface NavbarItemEntry {
     label?: string;
     href?: string;
     type: NavbarItemType;
