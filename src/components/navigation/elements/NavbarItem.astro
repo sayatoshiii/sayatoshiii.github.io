@@ -1,5 +1,6 @@
 ---
 import { type NavbarItemEntry, NavbarItemType } from "./types";
+const { pathname } = Astro.url;
 const entry: NavbarItemEntry = Astro.props.entry;
 ---
 
@@ -9,7 +10,18 @@ const entry: NavbarItemEntry = Astro.props.entry;
             case NavbarItemType.TEXT:
                 return <div>{entry.label}</div>;
             case NavbarItemType.LINK:
-                return <a href={entry.href}>{entry.label}</a>;
+                return (
+                    <a
+                        class={
+                            pathname === entry?.href
+                                ? "font-semibold"
+                                : undefined
+                        }
+                        href={entry.href}
+                    >
+                        {entry.label}
+                    </a>
+                );
             case NavbarItemType.IMAGE:
                 const img = <img src={entry.src} alt={entry.label} />;
                 return entry?.href ? <a href={entry?.href}>{img}</a> : img;

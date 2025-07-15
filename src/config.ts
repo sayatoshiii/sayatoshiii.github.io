@@ -16,6 +16,13 @@ export default {
                         type: NavbarItemType.LINK,
                     },
                 ],
+                [
+                    {
+                        label: "test 2",
+                        href: "/",
+                        type: NavbarItemType.LINK,
+                    },
+                ],
             ],
         },
     },
