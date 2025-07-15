@@ -17,6 +17,13 @@ body {
         hsl(240, 14%, 5%) 100%
     );
 
-    --colours-background-accent: hsla(0, 0%, 100%, 0.05);
-    --colours-border-tertiary: hsla(0, 0%, 100%, 0.05);
+    --colours-semi-important: hsla(0, 0%, 100%, 0.65);
+    --colours-secondary: hsla(0, 0%, 100%, 0.45);
+    --colours-tertiary: hsla(0, 0%, 100%, 0.05);
+
+    --colours-background-accent: var(--colours-tertiary);
+    --colours-border-tertiary: var(--colours-tertiary);
+
+    --colours-text-semi-important: var(--colours-semi-important);
+    --colours-text-secondary: var(--colours-secondary);
 }

@@ -1,11 +1,33 @@
+---
+import config from "../../config";
+
+const { pathname } = Astro.url;
+console.log(pathname);
+---
+
 <nav class={"w-full flex justify-center items-center"}>
     <main
-        class={"top-2 fixed w-full max-w-[min(1000px,90vw)] flex flex-row justify-between items-center gap-8 py-2 px-4 border-transparent border-2 rounded-xl backdrop-blur-[0px] bg-transparent transition-all duration-200"}
+        class={"top-2 fixed w-full max-w-[min(1000px,90vw)] flex flex-row justify-between items-center gap-8 py-2 px-4 border-transparent border-2 rounded-xl backdrop-blur-[0px] bg-transparent text-[var(--colours-text-semi-important)] transition-all duration-200"}
         id={"navbar"}
     >
-        <section>test 1</section>
-        <section>test 2</section>
-        <section>test 3</section>
+        {
+            config?.settings?.navbar?.items?.map((category) => (
+                <section class={"flex flex-row items-center"}>
+                    {category?.map((entry) => (
+                        <a
+                            class={
+                                pathname === entry?.href
+                                    ? "font-bold"
+                                    : undefined
+                            }
+                            href={entry?.href}
+                        >
+                            {entry?.label}
+                        </a>
+                    ))}
+                </section>
+            ))
+        }
     </main>
 </nav>
 
