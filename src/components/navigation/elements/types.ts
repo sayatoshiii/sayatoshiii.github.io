@@ -1,6 +1,7 @@
 export interface NavbarItemEntry {
     label?: string;
     href?: string;
+    src?: string;
     type: NavbarItemType;
 }
 

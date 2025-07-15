@@ -11,7 +11,8 @@ const entry: NavbarItemEntry = Astro.props.entry;
             case NavbarItemType.LINK:
                 return <a href={entry.href}>{entry.label}</a>;
             case NavbarItemType.IMAGE:
-                return <img src={entry.href} alt={entry.label} />;
+                const img = <img src={entry.src} alt={entry.label} />;
+                return entry?.href ? <a href={entry?.href}>{img}</a> : img;
             default:
                 return null;
         }
