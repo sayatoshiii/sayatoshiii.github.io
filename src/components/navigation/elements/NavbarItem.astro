@@ -1,0 +1,19 @@
+---
+import { type NavbarItem, NavbarItemType } from "./types";
+const entry: NavbarItem = Astro.props.entry;
+---
+
+{
+    (() => {
+        switch (entry?.type) {
+            case NavbarItemType.TEXT:
+                return <div>{entry.label}</div>;
+            case NavbarItemType.LINK:
+                return <a href={entry.href}>{entry.label}</a>;
+            case NavbarItemType.IMAGE:
+                return <img src={entry.href} alt={entry.label} />;
+            default:
+                return null;
+        }
+    })()
+}
